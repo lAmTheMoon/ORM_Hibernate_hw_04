@@ -2,10 +2,11 @@ package com.example.orm_hibernate_hw_04.service;
 
 import com.example.orm_hibernate_hw_04.entity.Person;
 import com.example.orm_hibernate_hw_04.repository.Repository;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@org.springframework.stereotype.Service
+@Component
 public class Service {
 
     private final Repository repository;
