@@ -1,6 +1,7 @@
 package com.example.orm_hibernate_hw_04.repository;
 
 import com.example.orm_hibernate_hw_04.entity.Person;
+import lombok.AllArgsConstructor;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,8 +21,7 @@ public class Repository {
         var query = entityManager.createQuery(
                 "select p from Person p where p.cityOfLiving = :city_of_living", Person.class);
         query.setParameter("city_of_living", city);
-        List<Person> list = query.getResultList();
-        return list;
+        return query.getResultList();
     }
 
     @Transactional
