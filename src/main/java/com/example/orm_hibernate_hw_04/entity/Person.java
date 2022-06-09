@@ -32,7 +32,6 @@ public class Person {
     private Integer age;
 
     @Column(name = "phone_number", nullable = false, unique = true)
-    @Size(max = 12, min = 12)
     private String phoneNumber;
 
     @Column(name = "city_of_living", nullable = false)

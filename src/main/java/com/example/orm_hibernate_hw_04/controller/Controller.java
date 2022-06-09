@@ -26,4 +26,15 @@ public class Controller {
     public List<Person> getPersonsTable() {
         return service.getPersons();
     }
+
+    @GetMapping("/persons/by-age")
+    public List<Person> getPersonsByAge(@RequestParam("age") String age) {
+        return service.getPersonsByAge(age);
+    }
+
+    @GetMapping("/persons/by-name-and-surname")
+    public List<Person> getPersonsByNameAndSurname(@RequestParam("name") String name,
+                                             @RequestParam("surname") String surname) {
+        return service.getPersonsByNameAndSurname(name, surname);
+    }
 }
