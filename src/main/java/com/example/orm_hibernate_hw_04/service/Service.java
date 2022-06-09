@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @org.springframework.stereotype.Service
@@ -24,18 +23,13 @@ public class Service {
     }
 
     public List<Person> getPersonsByAge(String age) {
-        return repository.findByAgeOrderBy(Integer.getInteger(age));
+        return repository.findByAgeOrderByAgeAsc(Integer.getInteger(age));
     }
 
-    public List<Person> getPersonsByNameAndSurname(String name, String surname) {
-        List<Person> persons = repository.findByNameAndSurname(name, surname).stream()
-                .filter(Optional::isPresent)
-                .map(ob -> (Person) ob.get())
-                .collect(Collectors.toList());
-        if (persons.isEmpty()) {
-            throw new EntityNotFoundException
-                    (String.format("Entity with name = %s and surname = %s not found", name, surname));
-        }
-        return persons;
+    public Person getPersonsByNameAndSurname(String name, String surname) {
+        return Optional.ofNullable(repository.findByNameAndSurname(name, surname)).get()
+                .orElseThrow(
+                        () -> new EntityNotFoundException(
+                                String.format("Entity with name = %s and surname = %s not found", name, surname)));
     }
 }

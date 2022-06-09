@@ -33,7 +33,7 @@ public class Controller {
     }
 
     @GetMapping("/persons/by-name-and-surname")
-    public List<Person> getPersonsByNameAndSurname(@RequestParam("name") String name,
+    public Person getPersonsByNameAndSurname(@RequestParam("name") String name,
                                              @RequestParam("surname") String surname) {
         return service.getPersonsByNameAndSurname(name, surname);
     }

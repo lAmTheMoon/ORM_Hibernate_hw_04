@@ -15,8 +15,8 @@ public interface Repository extends CrudRepository<Person, Long> {
     List<Person> findByCityOfLiving(String city);
 
     @Transactional
-    List<Person> findByAgeOrderBy(Integer age);
+    List<Person> findByAgeOrderByAgeAsc(Integer age);
 
     @Transactional
-    List<Optional> findByNameAndSurname(String name, String surname);
+    Optional<Person> findByNameAndSurname(String name, String surname);
 }
