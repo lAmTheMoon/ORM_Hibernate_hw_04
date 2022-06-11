@@ -1,3 +1,3 @@
-## Домашнее задание к занятию 8.5: Spring JPA Repositories, JPQL
+## Домашнее задание к занятию 8.6: Безопасность в веб-приложениях, Spring Security
 
-### DAO слой c JPA Repositories
+### Безопасное приложение
